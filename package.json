@@ -1,0 +1,54 @@
+{
+  "name": "diffchecker",
+  "version": "1.0.0",
+  "description": "Folder and File diff checker with side-by-side comparison",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win",
+    "build:portable": "electron-builder --win portable",
+    "test:core": "node tests/test-comparator.js"
+  },
+  "keywords": [
+    "diff",
+    "compare",
+    "folder",
+    "file",
+    "electron"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "dependencies": {
+    "diff": "^5.1.0"
+  },
+  "build": {
+    "appId": "com.diffchecker.app",
+    "productName": "DiffChecker",
+    "icon": "assets/icon.ico",
+    "win": {
+      "target": "nsis",
+      "artifactName": "DiffChecker-${version}-Setup.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    }
+  },
+  "allowScripts": {
+    "electron@28.3.3": true
+  }
+}
