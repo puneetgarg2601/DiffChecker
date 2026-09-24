@@ -1,0 +1,25 @@
+appId: com.diffchecker.app
+productName: DiffChecker
+icon: assets/icon.ico
+
+win:
+  target: nsis
+  artifactName: DiffChecker-${version}-Setup.${ext}
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: DiffChecker
+
+files:
+  - src/**/*
+  - assets/**/*
+
+directories:
+  output: dist
+  buildResources: assets
+
+extraMetadata:
+  main: src/main/main.js
